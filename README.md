@@ -1,2 +1,2 @@
-# calculadora
- calculadora web criada com javascript
+# JavaScript 
+Todos os meus projetos em javascript.
