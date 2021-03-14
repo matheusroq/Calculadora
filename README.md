@@ -1,2 +1,2 @@
 # JavaScript 
-Todos os meus projetos em javascript.
+Todos os meus projetos iniciantess em javascript.
