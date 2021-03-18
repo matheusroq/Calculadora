@@ -1,0 +1,35 @@
+:root {
+    --main-color: rgb(216, 211, 216);
+    --main-color-darker: rgb(44, 2, 53);
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--main-color);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+
+form input, form label, form button {
+    display: block;
+    width: 100%;
+}
+
+
+
+
+
+form button {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
