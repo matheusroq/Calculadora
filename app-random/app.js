@@ -3,8 +3,8 @@ let rand = Math.floor(Math.random() * 100) + 1
 
 const input = document.querySelector('#input');
 const button = document.querySelector('#button');
-let resultado = document.querySelector('.resultado');
-let baixoOuAlto = document.querySelector('.baixoOuAlto');
+let result = document.querySelector('.result');
+let clues = document.querySelector('.clues');
 let count = 1;
 
 button.addEventListener('click', (e) => {
@@ -17,66 +17,58 @@ button.addEventListener('click', (e) => {
 
 function checkGuess() {
 
-    let value = Number(input.value);
-    
-    let palpites = document.querySelector('.palpites');
-    
-
-    if (count === 1) {
-        palpites.value = 'Palpites anteriores: ';
-      }
-      palpites.value += value + ' ';
+        let value = Number(input.value);
       
         if(value == rand) {
-            resultado.innerHTML = 'Você acertou!!'
-            resultado.style.backgroundColor = 'green';
-            baixoOuAlto.value = '';
+            result.innerHTML = 'Você acertou!!'
+            result.style.backgroundColor = 'green';
+            clues.value = '';
             configFimDeJogo();
         } else if(count === 10) {
-            resultado.innerHTML = 'Fim de jogo!!!!!';
+            result.innerHTML = 'Fim de jogo!!!!!';
             configFimDeJogo();
         }else {
-            resultado.innerHTML = 'Você errou. :(';
-            resultado.style.backgroundColor = 'red';
+            result.innerHTML = 'Você errou. :(';
+            result.style.backgroundColor = 'red';
             if(value < rand) {
-                baixoOuAlto.textContent = 'Seu palpite está muito baixo!';
+                clues.textContent = 'Seu palpite está muito baixo!';
               } else if(value > rand) {
-                baixoOuAlto.textContent = 'Seu palpite está muito alto!';
+                clues.textContent = 'Seu palpite está muito alto!';
               }
         }
         
         count++;
-    console.log(rand)
+       
     
 }
-let botaoReinicio;
+let buttonRestart;
 
 function configFimDeJogo() {
     input.disabled = true;
     button.disabled = true;
-    baixoOuAlto.textContent = '';
-    botaoReinicio = document.createElement('button');
-    botaoReinicio.innerHTML = 'Iniciar novo jogo';
-    botaoReinicio.className = 'btn btn-warning'
+    clues.textContent = '';
+    buttonRestart = document.createElement('button');
+    buttonRestart.innerHTML = 'Iniciar novo jogo';
+    buttonRestart.className = 'btn btn-warning'
     let container = document.querySelector('.container');
-    container.appendChild(botaoReinicio);
-    botaoReinicio.addEventListener('click', (e) => {
+    container.appendChild(buttonRestart);
+    buttonRestart.addEventListener('click', (e) => {
         e.preventDefault();
-        resultado.innerHTML ='';
-        reiniciarJogo();
+        result.innerHTML ='';
+        restart();
     }); 
   }
 
 
-    function reiniciarJogo() {
+    function restart() {
       count = 1;
 
-      let reiniciar = document.querySelectorAll('.resultadoParas p');
-      for(let i; i < reiniciar.length; i++) {
-          reiniciar[i].value = '';
+      let restart = document.querySelectorAll('.text p');
+      for(let i; i < restart.length; i++) {
+          restart[i].value = '';
       }
 
-      botaoReinicio.parentNode.removeChild(botaoReinicio);
+      buttonRestart.parentNode.removeChild(buttonRestart);
 
       input.disabled = false;
       button.disabled = false;
